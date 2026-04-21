@@ -19,35 +19,45 @@
   <body>
     <main>
       <section id="app-container" class="app-container">
-        <div id="darkmode-switch-wrapper" class="darkmode-switch-wrapper">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <path
-              fill="#626C7F"
-              d="M12 1.5a.75.75 0 0 1 .75.75v1.5a.75.75 0 1 1-1.5 0v-1.5A.75.75 0 0 1 12 1.5Zm0 15a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm0-1.5a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm9.75-2.25a.75.75 0 1 0 0-1.5h-1.5a.75.75 0 1 0 0 1.5h1.5ZM12 19.5a.75.75 0 0 1 .75.75v1.5a.75.75 0 1 1-1.5 0v-1.5a.75.75 0 0 1 .75-.75Zm-8.25-6.75a.75.75 0 1 0 0-1.5h-1.5a.75.75 0 1 0 0 1.5h1.5Zm.969-8.031a.75.75 0 0 1 1.062 0l1.5 1.5a.751.751 0 0 1-1.062 1.062l-1.5-1.5a.75.75 0 0 1 0-1.062Zm1.062 14.562a.75.75 0 1 1-1.062-1.06l1.5-1.5a.75.75 0 1 1 1.062 1.06l-1.5 1.5Zm13.5-14.562a.75.75 0 0 0-1.062 0l-1.5 1.5a.751.751 0 0 0 1.062 1.062l1.5-1.5a.75.75 0 0 0 0-1.062Zm-1.062 14.562a.75.75 0 0 0 1.062-1.06l-1.5-1.5a.75.75 0 0 0-1.062 1.06l1.5 1.5Z"
+        <div class="app-header">
+          <div class="current-subject-wrapper">
+            <img
+              src="./assets/images/icon-accessibility.svg"
+              class="subject-icon a11y-icon"
+              alt=""
             />
-          </svg>
-          <label class="dm-switch">
-            <input type="checkbox" />
-            <span class="dm-slider"></span>
-          </label>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <path
-              fill="#626C7F"
-              d="M11.775 4.522A7.5 7.5 0 1 1 4.898 16.09c2.104-.57 4.974-1.953 6.24-5.326.828-2.211.876-4.408.637-6.241ZM20.184 12a8.997 8.997 0 0 0-9.315-8.994.75.75 0 0 0-.713.888c.345 1.821.42 4.092-.424 6.342-1.2 3.201-4.203 4.26-6.115 4.606a.75.75 0 0 0-.542 1.066A9 9 0 0 0 20.184 12Z"
-            />
-          </svg>
+            <p>Accessibility</p>
+          </div>
+          <div id="darkmode-switch-wrapper" class="darkmode-switch-wrapper">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="#626C7F"
+                d="M12 1.5a.75.75 0 0 1 .75.75v1.5a.75.75 0 1 1-1.5 0v-1.5A.75.75 0 0 1 12 1.5Zm0 15a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm0-1.5a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm9.75-2.25a.75.75 0 1 0 0-1.5h-1.5a.75.75 0 1 0 0 1.5h1.5ZM12 19.5a.75.75 0 0 1 .75.75v1.5a.75.75 0 1 1-1.5 0v-1.5a.75.75 0 0 1 .75-.75Zm-8.25-6.75a.75.75 0 1 0 0-1.5h-1.5a.75.75 0 1 0 0 1.5h1.5Zm.969-8.031a.75.75 0 0 1 1.062 0l1.5 1.5a.751.751 0 0 1-1.062 1.062l-1.5-1.5a.75.75 0 0 1 0-1.062Zm1.062 14.562a.75.75 0 1 1-1.062-1.06l1.5-1.5a.75.75 0 1 1 1.062 1.06l-1.5 1.5Zm13.5-14.562a.75.75 0 0 0-1.062 0l-1.5 1.5a.751.751 0 0 0 1.062 1.062l1.5-1.5a.75.75 0 0 0 0-1.062Zm-1.062 14.562a.75.75 0 0 0 1.062-1.06l-1.5-1.5a.75.75 0 0 0-1.062 1.06l1.5 1.5Z"
+              />
+            </svg>
+            <label class="dm-switch">
+              <input type="checkbox" id="dm-toggle" />
+              <span class="dm-slider"></span>
+            </label>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="#626C7F"
+                d="M11.775 4.522A7.5 7.5 0 1 1 4.898 16.09c2.104-.57 4.974-1.953 6.24-5.326.828-2.211.876-4.408.637-6.241ZM20.184 12a8.997 8.997 0 0 0-9.315-8.994.75.75 0 0 0-.713.888c.345 1.821.42 4.092-.424 6.342-1.2 3.201-4.203 4.26-6.115 4.606a.75.75 0 0 0-.542 1.066A9 9 0 0 0 20.184 12Z"
+              />
+            </svg>
+          </div>
         </div>
 
         <div id="menu-container" class="menu-container">
@@ -55,7 +65,7 @@
 
           <h1>Welcome to the <span class="h1-segment">Frontend Quiz!</span></h1>
 
-          <p class="pick">Pick a subject to get started.</p>
+          <p class="italic">Pick a subject to get started.</p>
 
           <div class="subject-btns">
             <button type="button" class="subject-btn" id="html-btn">
@@ -93,22 +103,114 @@
 
           <!-- Quiz menu end -->
         </div>
+
         <div id="questions-container" class="questions-container">
           <!-- Quiz question start -->
 
-          Question
-          <!-- number -->
-          of 10 A B C D Submit answer
+          <h2 class="italic">
+            Question <span id="question-nmbr">6</span> of 10
+          </h2>
+
+          <p id="question-text" class="question-text">
+            Which of these color contrast ratios defines the minimum WCAG 2.1
+            Level AA requirement for normal text?
+          </p>
+
+          <div class="progress-wrapper">
+            <div id="progress-bar" class="progress-bar"></div>
+          </div>
+
+          <div role="group" class="answer-options-wrapper">
+            <label class="answer-option"
+              ><span class="option-letter">A</span>
+              <span id="option-text-a" class="option-text">4.5 : 1</span>
+              <span id="result-icon" class="result-icon"
+                ><img src="" alt=""
+              /></span>
+              <input
+                type="radio"
+                name="answer"
+                value="A"
+                class="answer-input"
+              />
+            </label>
+            <label class="answer-option"
+              ><span class="option-letter">B</span>
+              <span id="option-text-b" class="option-text">3 : 1 </span>
+              <span id="result-icon" class="result-icon"
+                ><img src="" alt=""
+              /></span>
+              <input
+                type="radio"
+                name="answer"
+                value="B"
+                class="answer-input"
+              />
+            </label>
+            <label class="answer-option"
+              ><span class="option-letter">C</span>
+              <span id="option-text-c" class="option-text">2.5 : 1</span>
+              <span id="result-icon" class="result-icon"
+                ><img src="" alt=""
+              /></span>
+              <input
+                type="radio"
+                name="answer"
+                value="C"
+                class="answer-input"
+              />
+            </label>
+            <label class="answer-option"
+              ><span class="option-letter">D</span>
+              <span id="option-text-d" class="option-text">5 : 1</span>
+              <span id="result-icon" class="result-icon"
+                ><img src="" alt=""
+              /></span>
+              <input
+                type="radio"
+                name="answer"
+                value="D"
+                class="answer-input"
+              />
+            </label>
+          </div>
+
+          <button class="main-btn">
+            <span id="main-btn-text">Submit Answer</span>
+          </button>
+
+          <div id="error-wrapper" class="error-wrapper hidden">
+            <span class="error-icon"
+              ><img src="./assets/images/icon-error.svg" alt=""
+            /></span>
+            <p id="error-text" class="error-text">Please select an answer</p>
+          </div>
 
           <!-- Quiz question end -->
         </div>
+
         <div id="completed-container" class="completed-container">
           <!-- Quiz completed start -->
 
-          Quiz completed You scored...
+          <h2 class="completed">Quiz completed</h2>
+          <p class="you-scored">You scored...</p>
 
-          <!-- score -->
-          out of 10
+          <div class="score-wrapper">
+            <div class="current-subject-wrapper">
+              <img
+                class="subject-icon a11y-icon"
+                src="./assets/images/icon-accessibility.svg"
+                alt=""
+              />
+              <p>Accessabillity</p>
+            </div>
+            <p id="final-score" class="final-score">8</p>
+            <p class="out-of">out of 10</p>
+          </div>
+
+          <button class="again-btn">
+            <span id="again-btn-text">Submit Answer</span>
+          </button>
 
           <!-- Quiz completed end -->
         </div>
