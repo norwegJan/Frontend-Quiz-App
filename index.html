@@ -31,8 +31,8 @@
           <div id="darkmode-switch-wrapper" class="darkmode-switch-wrapper">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
+              width="20"
+              height="20"
               fill="none"
               viewBox="0 0 24 24"
             >
@@ -47,8 +47,8 @@
             </label>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
+              width="20"
+              height="20"
               fill="none"
               viewBox="0 0 24 24"
             >
@@ -62,10 +62,12 @@
 
         <div id="menu-container" class="menu-container">
           <!-- Quiz menu start -->
-
-          <h1>Welcome to the <span class="h1-segment">Frontend Quiz!</span></h1>
-
-          <p class="italic">Pick a subject to get started.</p>
+          <div class="menu-header">
+            <h1>
+              Welcome to the <span class="h1-segment">Frontend Quiz!</span>
+            </h1>
+            <p class="italic">Pick a subject to get started.</p>
+          </div>
 
           <div class="subject-btns">
             <button type="button" class="subject-btn" id="html-btn">
@@ -107,83 +109,87 @@
         <div id="questions-container" class="questions-container">
           <!-- Quiz question start -->
 
-          <h2 class="italic">
-            Question <span id="question-nmbr">6</span> of 10
-          </h2>
+          <div class="questions-header">
+            <h2 class="italic">
+              Question <span id="question-nmbr">6</span> of 10
+            </h2>
 
-          <p id="question-text" class="question-text">
-            Which of these color contrast ratios defines the minimum WCAG 2.1
-            Level AA requirement for normal text?
-          </p>
+            <p id="question-text" class="question-text">
+              Which of these color contrast ratios defines the minimum WCAG 2.1
+              Level AA requirement for normal text?
+            </p>
 
-          <div class="progress-wrapper">
-            <div id="progress-bar" class="progress-bar"></div>
+            <div class="progress-wrapper">
+              <div id="progress-bar" class="progress-bar"></div>
+            </div>
           </div>
 
-          <div role="group" class="answer-options-wrapper">
-            <label class="answer-option"
-              ><span class="option-letter">A</span>
-              <span id="option-text-a" class="option-text">4.5 : 1</span>
-              <span id="result-icon" class="result-icon"
-                ><img src="" alt=""
-              /></span>
-              <input
-                type="radio"
-                name="answer"
-                value="A"
-                class="answer-input"
-              />
-            </label>
-            <label class="answer-option"
-              ><span class="option-letter">B</span>
-              <span id="option-text-b" class="option-text">3 : 1 </span>
-              <span id="result-icon" class="result-icon"
-                ><img src="" alt=""
-              /></span>
-              <input
-                type="radio"
-                name="answer"
-                value="B"
-                class="answer-input"
-              />
-            </label>
-            <label class="answer-option"
-              ><span class="option-letter">C</span>
-              <span id="option-text-c" class="option-text">2.5 : 1</span>
-              <span id="result-icon" class="result-icon"
-                ><img src="" alt=""
-              /></span>
-              <input
-                type="radio"
-                name="answer"
-                value="C"
-                class="answer-input"
-              />
-            </label>
-            <label class="answer-option"
-              ><span class="option-letter">D</span>
-              <span id="option-text-d" class="option-text">5 : 1</span>
-              <span id="result-icon" class="result-icon"
-                ><img src="" alt=""
-              /></span>
-              <input
-                type="radio"
-                name="answer"
-                value="D"
-                class="answer-input"
-              />
-            </label>
-          </div>
+          <div class="questions-segment">
+            <div role="group" class="answer-options-wrapper">
+              <label class="answer-option"
+                ><span class="option-letter">A</span>
+                <span id="option-text-a" class="option-text">4.5 : 1</span>
+                <span id="result-icon" class="result-icon"
+                  ><img src="" alt=""
+                /></span>
+                <input
+                  type="radio"
+                  name="answer"
+                  value="A"
+                  class="answer-input"
+                />
+              </label>
+              <label class="answer-option"
+                ><span class="option-letter">B</span>
+                <span id="option-text-b" class="option-text">3 : 1 </span>
+                <span id="result-icon" class="result-icon"
+                  ><img src="" alt=""
+                /></span>
+                <input
+                  type="radio"
+                  name="answer"
+                  value="B"
+                  class="answer-input"
+                />
+              </label>
+              <label class="answer-option"
+                ><span class="option-letter">C</span>
+                <span id="option-text-c" class="option-text">2.5 : 1</span>
+                <span id="result-icon" class="result-icon"
+                  ><img src="" alt=""
+                /></span>
+                <input
+                  type="radio"
+                  name="answer"
+                  value="C"
+                  class="answer-input"
+                />
+              </label>
+              <label class="answer-option"
+                ><span class="option-letter">D</span>
+                <span id="option-text-d" class="option-text">5 : 1</span>
+                <span id="result-icon" class="result-icon"
+                  ><img src="" alt=""
+                /></span>
+                <input
+                  type="radio"
+                  name="answer"
+                  value="D"
+                  class="answer-input"
+                />
+              </label>
+            </div>
 
-          <button class="main-btn">
-            <span id="main-btn-text">Submit Answer</span>
-          </button>
+            <button class="main-btn">
+              <span id="main-btn-text">Submit Answer</span>
+            </button>
 
-          <div id="error-wrapper" class="error-wrapper hidden">
-            <span class="error-icon"
-              ><img src="./assets/images/icon-error.svg" alt=""
-            /></span>
-            <p id="error-text" class="error-text">Please select an answer</p>
+            <div id="error-wrapper" class="error-wrapper hidden">
+              <span class="error-icon"
+                ><img src="./assets/images/icon-error.svg" alt=""
+              /></span>
+              <p id="error-text" class="error-text">Please select an answer</p>
+            </div>
           </div>
 
           <!-- Quiz question end -->
@@ -192,26 +198,29 @@
         <div id="completed-container" class="completed-container">
           <!-- Quiz completed start -->
 
-          <h2 class="completed">Quiz completed</h2>
-          <p class="you-scored">You scored...</p>
-
-          <div class="score-wrapper">
-            <div class="current-subject-wrapper">
-              <img
-                class="subject-icon a11y-icon"
-                src="./assets/images/icon-accessibility.svg"
-                alt=""
-              />
-              <p>Accessabillity</p>
-            </div>
-            <p id="final-score" class="final-score">8</p>
-            <p class="out-of">out of 10</p>
+          <div class="completed-header">
+            <h2 class="completed">Quiz completed</h2>
+            <p class="you-scored">You scored...</p>
           </div>
 
-          <button class="again-btn">
-            <span id="again-btn-text">Submit Answer</span>
-          </button>
+          <div class="completed-segment">
+            <div class="score-wrapper">
+              <div class="current-subject-wrapper">
+                <img
+                  class="subject-icon a11y-icon"
+                  src="./assets/images/icon-accessibility.svg"
+                  alt=""
+                />
+                <p>Accessabillity</p>
+              </div>
+              <p id="final-score" class="final-score">8</p>
+              <p class="out-of">out of 10</p>
+            </div>
 
+            <button class="again-btn">
+              <span id="again-btn-text">Play Again</span>
+            </button>
+          </div>
           <!-- Quiz completed end -->
         </div>
       </section>
