@@ -111,7 +111,7 @@ body {
 }
 
 .app-container {
-  max-width: 375px;
+  max-width: 525px;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -550,9 +550,9 @@ input[type="radio"] {
 
 @media (min-width: 1024px) {
   .app-container {
-    max-width: 1440px;
+    max-width: 1500px;
     gap: 100px;
-    padding: var(--spacing-800) var(--spacing-1800);
+    padding: var(--spacing-800) var(--spacing-1600);
     padding-top: 50px;
   }
 
@@ -577,7 +577,7 @@ input[type="radio"] {
 
   .subject-btns,
   button {
-    max-width: 565px;
+    max-width: 700px;
   }
 
   .question-text {
