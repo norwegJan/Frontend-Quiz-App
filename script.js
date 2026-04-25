@@ -11,3 +11,5 @@ answerInputs.forEach((input) => {
     console.log(e.target.value);
   });
 });
+
+console.log("test");
