@@ -20,7 +20,7 @@
     <main>
       <section id="app-container" class="app-container">
         <div class="app-header">
-          <div class="current-subject-wrapper hidden">
+          <div class="current-subject-wrapper">
             <img
               src="./assets/images/icon-accessibility.svg"
               class="subject-icon a11y-icon"
@@ -39,11 +39,16 @@
               <path
                 fill="#626C7F"
                 d="M12 1.5a.75.75 0 0 1 .75.75v1.5a.75.75 0 1 1-1.5 0v-1.5A.75.75 0 0 1 12 1.5Zm0 15a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm0-1.5a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm9.75-2.25a.75.75 0 1 0 0-1.5h-1.5a.75.75 0 1 0 0 1.5h1.5ZM12 19.5a.75.75 0 0 1 .75.75v1.5a.75.75 0 1 1-1.5 0v-1.5a.75.75 0 0 1 .75-.75Zm-8.25-6.75a.75.75 0 1 0 0-1.5h-1.5a.75.75 0 1 0 0 1.5h1.5Zm.969-8.031a.75.75 0 0 1 1.062 0l1.5 1.5a.751.751 0 0 1-1.062 1.062l-1.5-1.5a.75.75 0 0 1 0-1.062Zm1.062 14.562a.75.75 0 1 1-1.062-1.06l1.5-1.5a.75.75 0 1 1 1.062 1.06l-1.5 1.5Zm13.5-14.562a.75.75 0 0 0-1.062 0l-1.5 1.5a.751.751 0 0 0 1.062 1.062l1.5-1.5a.75.75 0 0 0 0-1.062Zm-1.062 14.562a.75.75 0 0 0 1.062-1.06l-1.5-1.5a.75.75 0 0 0-1.062 1.06l1.5 1.5Z"
-                class="dm-el"
+                class="darkmode-icon"
               />
             </svg>
             <label class="dm-switch">
-              <input type="checkbox" id="dm-toggle" />
+              <input
+                type="checkbox"
+                autocomplete="off"
+                id="dm-toggle"
+                aria-label="darkmode-switch"
+              />
               <span class="dm-slider"></span>
             </label>
             <svg
@@ -56,7 +61,7 @@
               <path
                 fill="#626C7F"
                 d="M11.775 4.522A7.5 7.5 0 1 1 4.898 16.09c2.104-.57 4.974-1.953 6.24-5.326.828-2.211.876-4.408.637-6.241ZM20.184 12a8.997 8.997 0 0 0-9.315-8.994.75.75 0 0 0-.713.888c.345 1.821.42 4.092-.424 6.342-1.2 3.201-4.203 4.26-6.115 4.606a.75.75 0 0 0-.542 1.066A9 9 0 0 0 20.184 12Z"
-                class="dm-el"
+                class="darkmode-icon"
               />
             </svg>
           </div>
@@ -72,7 +77,7 @@
           </div>
 
           <div class="subject-btns">
-            <button type="button" class="subject-btn dm-el" id="html-btn">
+            <button type="button" class="subject-btn" id="html-btn">
               <img
                 src="./assets/images/icon-html.svg"
                 alt=""
@@ -80,7 +85,7 @@
               /><span class="btn-text">HTML</span>
             </button>
 
-            <button type="button" class="subject-btn dm-el" id="css-btn">
+            <button type="button" class="subject-btn" id="css-btn">
               <img
                 src="./assets/images/icon-css.svg"
                 alt=""
@@ -88,7 +93,7 @@
               /><span class="btn-text">CSS</span>
             </button>
 
-            <button type="button" class="subject-btn dm-el" id="js-btn">
+            <button type="button" class="subject-btn" id="js-btn">
               <img
                 src="./assets/images/icon-js.svg"
                 alt=""
@@ -96,7 +101,7 @@
               /><span class="btn-text">JavaScript</span>
             </button>
 
-            <button type="button" class="subject-btn dm-el" id="a11y-btn">
+            <button type="button" class="subject-btn" id="a11y-btn">
               <img
                 src="./assets/images/icon-accessibility.svg"
                 alt=""
@@ -108,7 +113,7 @@
           <!-- Quiz menu end -->
         </div>
 
-        <div id="questions-container" class="questions-container hidden">
+        <div id="questions-container" class="questions-container">
           <!-- Quiz question start -->
 
           <div class="questions-header">
@@ -121,14 +126,14 @@
               Level AA requirement for normal text?
             </p>
 
-            <div class="progress-wrapper dm-el">
+            <div class="progress-wrapper">
               <div id="progress-bar" class="progress-bar dar"></div>
             </div>
           </div>
 
           <div class="questions-segment">
             <div role="group" class="answer-options-wrapper">
-              <label class="answer-option dm-el"
+              <label class="answer-option"
                 ><span class="option-letter">A</span>
                 <span id="option-text-A" class="option-text">4.5 : 1</span>
                 <span
@@ -138,12 +143,13 @@
                 ></span>
                 <input
                   type="radio"
+                  autocomplete="off"
                   name="answer"
                   value="A"
                   class="answer-input"
                 />
               </label>
-              <label class="answer-option dm-el"
+              <label class="answer-option"
                 ><span class="option-letter">B</span>
                 <span id="option-text-B" class="option-text">3 : 1 </span>
                 <span
@@ -153,12 +159,13 @@
                 ></span>
                 <input
                   type="radio"
+                  autocomplete="off"
                   name="answer"
                   value="B"
                   class="answer-input"
                 />
               </label>
-              <label class="answer-option dm-el"
+              <label class="answer-option"
                 ><span class="option-letter">C</span>
                 <span id="option-text-C" class="option-text">2.5 : 1</span>
                 <span
@@ -168,12 +175,13 @@
                 ></span>
                 <input
                   type="radio"
+                  autocomplete="off"
                   name="answer"
                   value="C"
                   class="answer-input"
                 />
               </label>
-              <label class="answer-option dm-el"
+              <label class="answer-option"
                 ><span class="option-letter">D</span>
                 <span id="option-text-D" class="option-text">5 : 1</span>
                 <span
@@ -183,6 +191,7 @@
                 ></span>
                 <input
                   type="radio"
+                  autocomplete="off"
                   name="answer"
                   value="D"
                   class="answer-input"
@@ -190,7 +199,7 @@
               </label>
             </div>
 
-            <button class="main-btn">
+            <button id="submit-btn" class="submit-btn">
               <span id="main-btn-text">Submit Answer</span>
             </button>
 
@@ -205,7 +214,7 @@
           <!-- Quiz question end -->
         </div>
 
-        <div id="completed-container" class="completed-container hidden">
+        <div id="completed-container" class="completed-container">
           <!-- Quiz completed start -->
 
           <div class="completed-header">
@@ -214,7 +223,7 @@
           </div>
 
           <div class="completed-segment">
-            <div class="score-wrapper dm-el">
+            <div class="score-wrapper">
               <div class="current-subject-wrapper">
                 <img
                   class="subject-icon a11y-icon"
@@ -227,7 +236,7 @@
               <p id="out-of-el" class="out-of">out of 10</p>
             </div>
 
-            <button class="again-btn">
+            <button id="again-btn" class="again-btn">
               <span id="again-btn-text">Play Again</span>
             </button>
           </div>
