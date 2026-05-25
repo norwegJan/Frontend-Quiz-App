@@ -20,14 +20,7 @@
     <main>
       <section id="app-container" class="app-container">
         <div class="app-header">
-          <div class="current-subject-wrapper">
-            <img
-              src="./assets/images/icon-accessibility.svg"
-              class="subject-icon a11y-icon"
-              alt=""
-            />
-            <p>Accessibility</p>
-          </div>
+          <div class="current-subject-wrapper"></div>
           <div id="darkmode-switch-wrapper" class="darkmode-switch-wrapper">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -77,35 +70,55 @@
           </div>
 
           <div class="subject-btns">
-            <button type="button" class="subject-btn" id="html-btn">
+            <button
+              type="button"
+              class="subject-btn"
+              id="html-btn"
+              data-subject="HTML"
+            >
               <img
                 src="./assets/images/icon-html.svg"
                 alt=""
-                class="subject-icon html-icon"
+                class="subject-icon HTML-icon"
               /><span class="btn-text">HTML</span>
             </button>
 
-            <button type="button" class="subject-btn" id="css-btn">
+            <button
+              type="button"
+              class="subject-btn"
+              id="css-btn"
+              data-subject="CSS"
+            >
               <img
                 src="./assets/images/icon-css.svg"
                 alt=""
-                class="subject-icon css-icon"
+                class="subject-icon CSS-icon"
               /><span class="btn-text">CSS</span>
             </button>
 
-            <button type="button" class="subject-btn" id="js-btn">
+            <button
+              type="button"
+              class="subject-btn"
+              id="js-btn"
+              data-subject="JavaScript"
+            >
               <img
                 src="./assets/images/icon-js.svg"
                 alt=""
-                class="subject-icon js-icon"
+                class="subject-icon JavaScript-icon"
               /><span class="btn-text">JavaScript</span>
             </button>
 
-            <button type="button" class="subject-btn" id="a11y-btn">
+            <button
+              type="button"
+              class="subject-btn"
+              id="a11y-btn"
+              data-subject="Accessibility"
+            >
               <img
                 src="./assets/images/icon-accessibility.svg"
                 alt=""
-                class="subject-icon a11y-icon"
+                class="subject-icon Accessibility-icon"
               /><span class="btn-text">Accessibility</span>
             </button>
           </div>
@@ -118,16 +131,16 @@
 
           <div class="questions-header">
             <h2 class="italic">
-              Question <span id="question-nmbr">6</span> of 10
+              Question <span id="question-counter">0</span> of 10
             </h2>
 
             <p id="question-text" class="question-text">
-              Which of these color contrast ratios defines the minimum WCAG 2.1
-              Level AA requirement for normal text?
+              Curabitur semper venenatis lectus viverra ex dictumst nulla
+              maximus?
             </p>
 
             <div class="progress-wrapper">
-              <div id="progress-bar" class="progress-bar dar"></div>
+              <div id="progress-bar" class="progress-bar"></div>
             </div>
           </div>
 
@@ -135,7 +148,7 @@
             <div role="group" class="answer-options-wrapper">
               <label class="answer-option"
                 ><span class="option-letter">A</span>
-                <span id="option-text-A" class="option-text">4.5 : 1</span>
+                <span id="option-A" class="option-text">Lorem</span>
                 <span
                   id="result-icon-A"
                   class="result-icon"
@@ -147,11 +160,12 @@
                   name="answer"
                   value="A"
                   class="answer-input"
+                  disabled
                 />
               </label>
               <label class="answer-option"
                 ><span class="option-letter">B</span>
-                <span id="option-text-B" class="option-text">3 : 1 </span>
+                <span id="option-B" class="option-text">Ipsum</span>
                 <span
                   id="result-icon-B"
                   class="result-icon"
@@ -163,11 +177,12 @@
                   name="answer"
                   value="B"
                   class="answer-input"
+                  disabled
                 />
               </label>
               <label class="answer-option"
                 ><span class="option-letter">C</span>
-                <span id="option-text-C" class="option-text">2.5 : 1</span>
+                <span id="option-C" class="option-text">Dolor</span>
                 <span
                   id="result-icon-C"
                   class="result-icon"
@@ -179,11 +194,12 @@
                   name="answer"
                   value="C"
                   class="answer-input"
+                  disabled
                 />
               </label>
               <label class="answer-option"
                 ><span class="option-letter">D</span>
-                <span id="option-text-D" class="option-text">5 : 1</span>
+                <span id="option-D" class="option-text">Sit</span>
                 <span
                   id="result-icon-D"
                   class="result-icon"
@@ -195,12 +211,13 @@
                   name="answer"
                   value="D"
                   class="answer-input"
+                  disabled
                 />
               </label>
             </div>
 
-            <button id="submit-btn" class="submit-btn">
-              <span id="main-btn-text">Submit Answer</span>
+            <button id="submit-btn" class="submit-btn" disabled>
+              <span id="submit-btn-text">Submit Answer</span>
             </button>
 
             <div id="error-wrapper" class="error-wrapper hidden">
@@ -224,15 +241,8 @@
 
           <div class="completed-segment">
             <div class="score-wrapper">
-              <div class="current-subject-wrapper">
-                <img
-                  class="subject-icon a11y-icon"
-                  src="./assets/images/icon-accessibility.svg"
-                  alt=""
-                />
-                <p>Accessibillity</p>
-              </div>
-              <p id="final-score" class="final-score">8</p>
+              <div class="current-subject-wrapper"></div>
+              <p id="final-score" class="final-score">0</p>
               <p id="out-of-el" class="out-of">out of 10</p>
             </div>
 
