@@ -5,6 +5,10 @@ const currentSubject = document.querySelectorAll(".current-subject-wrapper");
 const dmToggle = document.querySelector("#dm-toggle");
 const darkMode = localStorage.getItem("darkMode");
 
+const menuContainer = document.querySelector("#menu-container");
+const questionsContainer = document.querySelector("#questions-container");
+const completedContainer = document.querySelector("#completed-container");
+
 let quizData;
 
 const subjectBtns = document.querySelectorAll(".subject-btn");
@@ -64,12 +68,17 @@ answerInputs.forEach((input, index) => {
 });
 
 submitBtn.addEventListener("click", () => {
+  if (quizState.hasSubmitted) {
+    nextQuestion();
+    return;
+  }
+
   submitAnswer();
   console.log(isAnswerCorrect());
 });
 
 againBtn.addEventListener("click", () => {
-  console.log("again-Button clicked");
+  resetQuiz();
 });
 
 // DECLARE FUNCTIONS
@@ -94,6 +103,9 @@ function startQuiz(subject) {
   quizState.selectedQuiz = quizData.quizzes.find((quiz) => {
     return quiz.title === subject;
   });
+
+  menuContainer.classList.add("hidden");
+  questionsContainer.classList.remove("hidden");
 
   currentSubject.forEach((el) => {
     el.innerHTML = `<img
@@ -132,6 +144,23 @@ function renderQuestion() {
   optionTextElements.forEach((optionEl, index) => {
     optionEl.textContent = currentQuestion.options[index];
   });
+
+  answerInputs.forEach((input) => {
+    input.checked = false;
+  });
+
+  answerOptions.forEach((element) => {
+    element.classList.remove("correct");
+    element.classList.remove("incorrect");
+  });
+
+  resultIconElements.forEach((element) => {
+    element.innerHTML = "";
+  });
+
+  quizState.hasSubmitted = false;
+  quizState.selectedAnswer = null;
+  quizState.selectedAnswerIndex = null;
 }
 
 function updateSelectedAnswer(index) {
@@ -162,8 +191,24 @@ function submitAnswer() {
     quizState.score += 1;
   }
 
+  quizState.hasSubmitted = true;
+
   renderResultState();
+
+  if (isLastQuestion()) {
+    submitBtnText.textContent = "Show Final Result";
+  } else {
+    submitBtnText.textContent = "Next Question";
+  }
+
   console.log(`Current score is ${quizState.score}`);
+}
+
+function isLastQuestion() {
+  return (
+    quizState.currentQuestionIndex ===
+    quizState.selectedQuiz.questions.length - 1
+  );
 }
 
 function renderResultState() {
@@ -186,13 +231,72 @@ function renderResultState() {
     resultIconElements[selectedAnswerIndex].innerHTML = iconIncorrect;
     resultIconElements[correctAnswerIndex].innerHTML = iconCorrect;
   }
-
-  submitBtnText.textContent = "Next Question";
 }
 
-function nextQuestion() {}
+function nextQuestion() {
+  if (isLastQuestion()) {
+    showCompleted();
+    return;
+  }
 
-function showCompleted() {}
+  quizState.currentQuestionIndex++;
+  submitBtnText.textContent = "Submit Answer";
+  renderQuestion();
+}
+
+function showCompleted() {
+  questionsContainer.classList.add("hidden");
+  completedContainer.classList.remove("hidden");
+  finalScore.textContent = quizState.score;
+  againBtn.disabled = false;
+}
+
+function resetQuiz() {
+  quizState.selectedQuiz = null;
+  quizState.currentQuestionIndex = 0;
+  quizState.selectedAnswer = null;
+  quizState.selectedAnswerIndex = null;
+  quizState.score = 0;
+  quizState.hasSubmitted = false;
+
+  completedContainer.classList.add("hidden");
+  menuContainer.classList.remove("hidden");
+
+  currentSubject.forEach((el) => {
+    el.innerHTML = "";
+  });
+
+  finalScore.textContent = 0;
+
+  questionCounter.textContent = 0;
+  progressBar.style.width = "0%";
+  questionText.textContent =
+    "Curabitur semper venenatis lectus viverra ex dictumst nulla maximus?";
+  optionTextElements[0].textContent = "Lorem";
+  optionTextElements[1].textContent = "Ipsum";
+  optionTextElements[2].textContent = "Dolor";
+  optionTextElements[3].textContent = "Sit";
+  submitBtnText.textContent = "Submit Answer";
+
+  answerInputs.forEach((input) => {
+    input.checked = false;
+  });
+
+  answerOptions.forEach((element) => {
+    element.classList.remove("correct");
+    element.classList.remove("incorrect");
+  });
+
+  resultIconElements.forEach((element) => {
+    element.innerHTML = "";
+  });
+
+  answerInputs.forEach((input) => {
+    input.disabled = true;
+  });
+
+  submitBtn.disabled = true;
+}
 
 // INITIATE APP-STATE
 
