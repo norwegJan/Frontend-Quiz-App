@@ -74,7 +74,6 @@ submitBtn.addEventListener("click", () => {
   }
 
   submitAnswer();
-  console.log(isAnswerCorrect());
 });
 
 againBtn.addEventListener("click", () => {
@@ -96,7 +95,9 @@ async function getQuizData() {
 
 async function initApp() {
   quizData = await getQuizData();
-  console.log(quizData);
+  subjectBtns.forEach((btn) => {
+    btn.disabled = false;
+  });
 }
 
 function startQuiz(subject) {
@@ -123,7 +124,6 @@ function startQuiz(subject) {
 
   quizState.currentQuestionIndex = 0;
   quizState.selectedAnswer = null;
-  quizState.progress = quizState.currentQuestionIndex + 1;
   quizState.score = 0;
   quizState.hasSubmitted = false;
 
@@ -141,6 +141,8 @@ function renderQuestion() {
   progressBar.style.width = `${(questionNumber / totalQuestions) * 100}%`;
   questionText.textContent = currentQuestion.question;
 
+  errorMsg.classList.add("hidden");
+
   optionTextElements.forEach((optionEl, index) => {
     optionEl.textContent = currentQuestion.options[index];
   });
@@ -156,6 +158,10 @@ function renderQuestion() {
 
   resultIconElements.forEach((element) => {
     element.innerHTML = "";
+  });
+
+  answerInputs.forEach((input) => {
+    input.disabled = false;
   });
 
   quizState.hasSubmitted = false;
@@ -192,6 +198,10 @@ function submitAnswer() {
   }
 
   quizState.hasSubmitted = true;
+
+  answerInputs.forEach((input) => {
+    input.disabled = true;
+  });
 
   renderResultState();
 

@@ -32,7 +32,9 @@
   --green-500: #2fd887;
   --green-100: #e0fdef;
 
+  --purple-500: #ba5df4;
   --purple-600: #a729f5;
+  --purple-700: #8b0adb;
   --purple-100: #f6e7ff;
 
   --orange-400: #ff7e35;
@@ -219,6 +221,12 @@ input[type="checkbox"]:checked + .dm-slider:before {
   transform: translateX(12px);
 }
 
+#dm-toggle:focus-visible + .dm-slider {
+  outline: 3px solid var(--purple-700);
+  outline-offset: 3px;
+  transition: none;
+}
+
 .menu-container {
   width: 100%;
   margin-bottom: 2rem;
@@ -273,6 +281,12 @@ h1 {
 
 .subject-btn:hover {
   border: 3px solid var(--purple-600);
+}
+
+.subject-btn:disabled {
+  cursor: wait;
+  border-color: transparent;
+  color: var(--secondary-text);
 }
 
 .subject-icon {
@@ -381,6 +395,7 @@ input[type="radio"] {
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
   font-size: 18px;
   font-weight: 500;
   color: var(--grey-500);
@@ -395,41 +410,63 @@ input[type="radio"] {
 .option-text {
   font-size: 18px;
   font-weight: 500;
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
 .answer-option:hover {
   border: 3px solid var(--purple-600);
 }
 
-.answer-option:has(input[type="radio"]:checked) {
+.answer-option:has(input[type="radio"]:checked):not(.correct):not(.incorrect) {
   border: 3px solid var(--purple-600);
 }
 
-.answer-option:has(input[type="radio"]:checked) .option-letter {
+.answer-option:has(input[type="radio"]:checked):not(.correct):not(.incorrect)
+  .option-letter {
   background-color: var(--purple-600);
   color: white;
 }
 
-.answer-option:has(input[type="radio"]:checked).correct {
+.answer-option.correct {
   border: 3px solid var(--green-500);
 }
 
-.answer-option:has(input[type="radio"]:checked).correct .option-letter {
+.answer-option.correct .option-letter {
   background-color: var(--green-500);
   color: white;
 }
 
-.answer-option:has(input[type="radio"]:checked).incorrect {
+.answer-option.incorrect {
   border: 3px solid var(--red-500);
 }
 
-.answer-option:has(input[type="radio"]:checked).incorrect .option-letter {
+.answer-option.incorrect .option-letter {
   background-color: var(--red-500);
   color: white;
 }
 
+.answer-option:has(input:disabled) {
+  cursor: default;
+}
+
+.answer-option:has(input:disabled):not(.correct):not(.incorrect):hover {
+  border-color: var(--component-border);
+}
+
+.answer-option:has(input:disabled):not(.correct):not(.incorrect)
+  > .option-text {
+  color: var(--secondary-text);
+}
+
+.answer-option:has(input:focus-visible) {
+  outline: 3px solid var(--purple-700);
+  outline-offset: 5px;
+}
+
 .result-icon {
   margin-left: auto;
+  flex-shrink: 0;
 }
 
 .submit-btn,
@@ -437,11 +474,24 @@ input[type="radio"] {
   width: 100%;
   height: 56px;
   background-color: var(--purple-600);
+  border: 3px solid transparent;
   color: white;
   border-radius: 12px;
   font-family: "Rubik";
   font-size: 18px;
   font-weight: 500;
+}
+
+.submit-btn:hover,
+.again-btn:hover {
+  background-color: var(--purple-500);
+}
+
+.subject-btn:focus-visible,
+.submit-btn:focus-visible,
+.again-btn:focus-visible {
+  outline: 3px solid var(--purple-700);
+  outline-offset: 5px;
 }
 
 .error-wrapper {
@@ -476,7 +526,7 @@ input[type="radio"] {
 
 .score-wrapper {
   width: 100%;
-  height: 19rem;
+  min-height: 19rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -539,7 +589,7 @@ input[type="radio"] {
 
   .subject-btn,
   .answer-option {
-    height: 88px;
+    min-height: 88px;
   }
 
   .btn-text,
