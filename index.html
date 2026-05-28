@@ -16,7 +16,7 @@
     <title>Frontend Mentor | Frontend quiz app</title>
   </head>
 
-  <body id="body" class="">
+  <body class="">
     <main>
       <section id="app-container" class="app-container">
         <div class="app-header">
@@ -28,6 +28,7 @@
               height="20"
               fill="none"
               viewBox="0 0 24 24"
+              aria-hidden="true"
             >
               <path
                 fill="#626C7F"
@@ -40,7 +41,7 @@
                 type="checkbox"
                 autocomplete="off"
                 id="dm-toggle"
-                aria-label="darkmode-switch"
+                aria-label="toggle dark mode"
               />
               <span class="dm-slider"></span>
             </label>
@@ -50,6 +51,7 @@
               height="20"
               fill="none"
               viewBox="0 0 24 24"
+              aria-hidden="true"
             >
               <path
                 fill="#626C7F"
@@ -144,12 +146,24 @@
             </p>
 
             <div class="progress-wrapper">
-              <div id="progress-bar" class="progress-bar"></div>
+              <div
+                id="progress-bar"
+                class="progress-bar"
+                role="progressbar"
+                aria-label="quiz-progress"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="0"
+              ></div>
             </div>
           </div>
 
           <div class="questions-segment">
-            <div role="group" class="answer-options-wrapper">
+            <div
+              role="group"
+              class="answer-options-wrapper"
+              aria-labelledby="question-text"
+            >
               <label class="answer-option"
                 ><span class="option-letter">A</span>
                 <span id="option-A" class="option-text">Lorem</span>
@@ -228,7 +242,9 @@
               <span class="error-icon"
                 ><img src="./assets/images/icon-error.svg" alt=""
               /></span>
-              <p id="error-text" class="error-text">Please select an answer</p>
+              <p id="error-text" class="error-text" aria-live="polite">
+                Please select an answer
+              </p>
             </div>
           </div>
 

@@ -56,7 +56,6 @@ dmToggle.addEventListener("change", (e) => {
 subjectBtns.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     const subject = e.currentTarget.dataset.subject;
-    console.log(`${subject} selected`);
     startQuiz(subject);
   });
 });
@@ -95,9 +94,11 @@ async function getQuizData() {
 
 async function initApp() {
   quizData = await getQuizData();
-  subjectBtns.forEach((btn) => {
-    btn.disabled = false;
-  });
+  if (quizData) {
+    subjectBtns.forEach((btn) => {
+      btn.disabled = false;
+    });
+  }
 }
 
 function startQuiz(subject) {
@@ -136,9 +137,11 @@ function renderQuestion() {
 
   const questionNumber = quizState.currentQuestionIndex + 1;
   const totalQuestions = quizState.selectedQuiz.questions.length;
+  const progressValue = (questionNumber / totalQuestions) * 100;
 
   questionCounter.textContent = questionNumber;
-  progressBar.style.width = `${(questionNumber / totalQuestions) * 100}%`;
+  progressBar.style.width = `${progressValue}%`;
+  progressBar.setAttribute = ("aria-valuenow", progressValue);
   questionText.textContent = currentQuestion.question;
 
   errorMsg.classList.add("hidden");
@@ -177,7 +180,6 @@ function updateSelectedAnswer(index) {
   quizState.selectedAnswerIndex = index;
 
   errorMsg.classList.add("hidden");
-  console.log(`${quizState.selectedAnswer} (${quizState.selectedAnswerIndex})`);
 }
 
 function isAnswerCorrect() {
@@ -210,8 +212,6 @@ function submitAnswer() {
   } else {
     submitBtnText.textContent = "Next Question";
   }
-
-  console.log(`Current score is ${quizState.score}`);
 }
 
 function isLastQuestion() {
