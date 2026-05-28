@@ -134,6 +134,7 @@ body {
   background-image: var(--page-background-image);
   background-repeat: no-repeat;
   background-position: left top;
+  background-size: cover;
 }
 
 .app-container {
@@ -569,6 +570,7 @@ input[type="radio"] {
 
   body {
     font-size: 28px;
+    background-size: auto;
   }
 
   .app-container {
