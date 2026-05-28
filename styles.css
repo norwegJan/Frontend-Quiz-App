@@ -122,6 +122,13 @@ button {
 input {
   appearance: none;
   -webkit-appearance: none;
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  inline-size: 1px;
+  block-size: 1px;
+  margin: 0;
 }
 
 /* ===== BASE STYLES / MOBILE ===== */
@@ -397,15 +404,6 @@ input[type="radio"] {
   cursor: pointer;
 }
 
-.answer-input {
-  position: absolute;
-  opacity: 0;
-  width: 1px;
-  height: 1px;
-  inline-size: 1px;
-  block-size: 1px;
-  margin: 0;
-}
 
 .option-letter {
   display: inline-flex;
