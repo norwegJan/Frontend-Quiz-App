@@ -383,6 +383,7 @@ input[type="radio"] {
 }
 
 .answer-option {
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -394,6 +395,16 @@ input[type="radio"] {
   width: 100%;
   border-radius: 12px;
   cursor: pointer;
+}
+
+.answer-input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  inline-size: 1px;
+  block-size: 1px;
+  margin: 0;
 }
 
 .option-letter {
