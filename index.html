@@ -140,7 +140,7 @@
               Question <span id="question-counter">0</span> of 10
             </h2>
 
-            <p id="question-text" class="question-text">
+            <p id="question-text" class="question-text" tabindex="-1">
               Curabitur semper venenatis lectus viverra ex dictumst nulla
               maximus?
             </p>
@@ -150,7 +150,7 @@
                 id="progress-bar"
                 class="progress-bar"
                 role="progressbar"
-                aria-label="quiz-progress"
+                aria-label="quiz progress"
                 aria-valuemin="0"
                 aria-valuemax="100"
                 aria-valuenow="0"
@@ -238,13 +238,11 @@
               <span id="submit-btn-text">Submit Answer</span>
             </button>
 
-            <div id="error-wrapper" class="error-wrapper hidden">
+            <div id="error-wrapper" class="error-wrapper hidden" role="alert">
               <span class="error-icon"
                 ><img src="./assets/images/icon-error.svg" alt=""
               /></span>
-              <p id="error-text" class="error-text" aria-live="polite">
-                Please select an answer
-              </p>
+              <p id="error-text" class="error-text">Please select an answer</p>
             </div>
           </div>
 

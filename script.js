@@ -137,11 +137,11 @@ function renderQuestion() {
 
   const questionNumber = quizState.currentQuestionIndex + 1;
   const totalQuestions = quizState.selectedQuiz.questions.length;
-  const progressValue = (questionNumber / totalQuestions) * 100;
+  const progressValue = Math.round((questionNumber / totalQuestions) * 100);
 
   questionCounter.textContent = questionNumber;
   progressBar.style.width = `${progressValue}%`;
-  progressBar.setAttribute = ("aria-valuenow", progressValue);
+  progressBar.setAttribute("aria-valuenow", progressValue);
   questionText.textContent = currentQuestion.question;
 
   errorMsg.classList.add("hidden");
@@ -170,6 +170,8 @@ function renderQuestion() {
   quizState.hasSubmitted = false;
   quizState.selectedAnswer = null;
   quizState.selectedAnswerIndex = null;
+
+  questionText.focus();
 }
 
 function updateSelectedAnswer(index) {
@@ -259,6 +261,7 @@ function showCompleted() {
   completedContainer.classList.remove("hidden");
   finalScore.textContent = quizState.score;
   againBtn.disabled = false;
+  againBtn.focus();
 }
 
 function resetQuiz() {
@@ -280,6 +283,7 @@ function resetQuiz() {
 
   questionCounter.textContent = 0;
   progressBar.style.width = "0%";
+  progressBar.setAttribute("aria-valuenow", 0);
   questionText.textContent =
     "Curabitur semper venenatis lectus viverra ex dictumst nulla maximus?";
   optionTextElements[0].textContent = "Lorem";
@@ -306,9 +310,10 @@ function resetQuiz() {
   });
 
   submitBtn.disabled = true;
+  subjectBtns[0].focus();
 }
 
-// INITIATE APP-STATE
+// INITIATE APP
 
 if (darkMode === "enabled") {
   dmToggle.checked = true;
